@@ -81,5 +81,5 @@ You're overdue to talk about a few things...
 
 #### User Info / State
 1. Name
-1. Happiness points (start at 50?)
-1. Money (start at 200)
+1. Happiness points (start at 50? User dropdox to select level of starting happiness?)
+1. Money (start at 200? User dropdox to select level of starting cash?)
