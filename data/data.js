@@ -48,21 +48,31 @@ const hopLeaf = {
     }]
 };
 
+const laColombe = {
+    id: 'laColombe',
+    name: 'La Colombe',
+    description: `But first, coffee.`,
+    choices: [{
+        id: 'pourOver',
+        description: `Single-origin pour over`,
+        result: `Your mouth is filled with an array of flavors, the likes of which you've never known.`,
+        happiness: 5,
+        money: -4,
+    }, {
+        id: 'decaf',
+        description: `Decaf`,
+        result: `The barista rings an enormous gong. The place grows quiet. Wait staff begin chanting, "shame!... shame!... shame!..." as you retreat out the door.`,
+        happiness: -15,
+        money: 0,
+    }, {
+        id: 'latte',
+        description: `Enormous latte with an extra shot`,
+        result: `That is darn delicous! But the jitters take over and you spill coffee down your pants while the hipsters on their laptops smirk behind their oversized glasses.`,
+        happiness: -3,
+        money: -8,
+    }]
+};
 
-// #### La Colombe
-// You're thirsty...
-// 1. Single-origin pour over
-//     - Your mouth is filled with an array of flavors, the likes of which you've never known.
-//     - Happiness: 5
-//     - Money: -4
-// 1. Decaf
-//     - The barista rings an enormous gong. The place grows quiet. Everyone starts chanting, "shame... shame... shame..." as you retreat out the door.
-//     - Happiness: -15
-//     - Money: 0
-// 1. Enormous latte with an extra shot
-//     - That is darn delicous! But the jitters take over and you spill coffee down your pants while the hipsters on their laptops smirk behind their oversized glasses. 
-//     - Happiness: -3
-//     - Money: -8
 
 // #### Therapy
 // You're overdue to talk about a few things...
@@ -79,6 +89,6 @@ const hopLeaf = {
 //     - Happiness: 30
 //     - Money: -100
 
-const adventures = [magicLounge, hopLeaf];
+const quests = [magicLounge, hopLeaf, laColombe];
 
-export default adventures;
+export { quests };
