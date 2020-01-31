@@ -1,13 +1,9 @@
-// Get form and read keys
+// HOME
 
-// Set localstorage - name, health, money
+// On form submit, get form keys
 
-// Display map and quests
+// Initialize localstorage from keys 
+    // name, health, money
+    // Completed quests
 
-// Listen for which quests
-
-// Process choices, update localstorage
-
-// Disable last selected quest
-
-// Show results page when no quests remain
+// Redirect to map
