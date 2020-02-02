@@ -1,7 +1,8 @@
 const magicLounge = {
     id: 'magicLounge',
     name: 'Chicago Magic Lounge',
-    description: `It's a swanky, intimate venue that performs magic shows? Seriously? You enter through a secret door in a former laundromat? Seriously!`,
+    image: '../assets/magiclounge.jpg',
+    description: `See a swanky magic show!`,
     choices: [{
         id: 'vip',
         description: `Get the VIP package`,
@@ -27,6 +28,7 @@ const hopLeaf = {
     id: 'hopLeaf',
     name: 'Hop Leaf',
     description: `Time for a beer! What're you having?`,
+    image: '../assets/hopleaf.jpg',
     choices: [{
         id: 'oldStyle',
         description: `Old Style`,
@@ -52,6 +54,7 @@ const laColombe = {
     id: 'laColombe',
     name: 'La Colombe',
     description: `But first, coffee.`,
+    image: '../assets/lacolombe.jpg',
     choices: [{
         id: 'pourOver',
         description: `Single-origin pour over`,

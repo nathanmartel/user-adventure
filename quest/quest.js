@@ -11,25 +11,29 @@ const questId = searchParams.get('id');
 // Find matching ID from localStorage and store quest variable
 const allQuests = getFromLocalStorage(questsKey);
 const quest = findById(questId, allQuests);
-console.log('Quest is: ', quest);
 
 // Get content div from DOM and add quest details
 const questContainer = document.getElementById('quest-container');
-const questTitle = document.createElement('h1');
+questContainer.style.backgroundImage = `url(${quest.image}`;
+const questIntroContainer = document.getElementById('quest-intro-container');
+const questTitle = document.createElement('h2');
 questTitle.textContent = `You walk into ${quest.name}`;
 const questDescription = document.createElement('p');
 questDescription.textContent = quest.description;
-questContainer.append(questTitle);
-questContainer.append(questDescription);
+questIntroContainer.append(questTitle);
+questIntroContainer.append(questDescription);
 
 // Create and append new form element to div
 const questForm = document.createElement('form');
 questContainer.append(questForm);
 
 // Loop through quests to make HTML and add to DOM
+const questChoicesContainer = document.createElement('div');
+questChoicesContainer.classList.add('quest-choices-container');
+questForm.append(questChoicesContainer);
 quest.choices.forEach(choice => { 
     const questChoiceDiv = makeNewQuestChoice(choice);
-    questForm.append(questChoiceDiv);
+    questChoicesContainer.append(questChoiceDiv);
 });
 
 // For each quest.choice, return a div with content
@@ -57,6 +61,11 @@ const submitButton = document.createElement('button');
 submitButton.textContent = 'Choose!';
 submitButton.type = 'submit';
 questForm.append(submitButton);
+
+// Add way back to map
+const goBack = document.createElement('a');
+goBack.href = '/map';
+questContainer.append(goBack);
 
 // On form submit, get user choice and process...
 questForm.addEventListener('submit', (event) => { 

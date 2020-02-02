@@ -48,6 +48,7 @@ export function renderUserStats(user) {
 
     const userInfoContainer = document.createElement('div');
     const userName = document.createElement('h2');
+    const userNameLink = document.createElement('a');
     const userStats = document.createElement('ul');
     const userHappiness = document.createElement('li');
     const userMoney = document.createElement('li');
@@ -59,14 +60,16 @@ export function renderUserStats(user) {
     userElementVars.forEach((item, i) => { 
         addHTMLId(item, userElementIds[i]);
     });
-    
-    userName.textContent = `${user.name}`;
+
+    userNameLink.textContent = `${user.name}`;
+    userNameLink.href = '/map';
+    userName.append(userNameLink);
+    userInfoContainer.append(userName);
+
     userHappiness.textContent = `Happiness: ${user.happiness}`;
     userMoney.textContent = `Money: ${user.money}`;
-
     userStats.append(userHappiness);
     userStats.append(userMoney);
-    userInfoContainer.append(userName);
     userInfoContainer.append(userStats);
 
     const existingContainer = document.getElementById('user-info-container');
