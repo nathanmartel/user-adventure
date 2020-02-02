@@ -1,6 +1,6 @@
 // MAP
 import { userKey, questsKey } from '../data/keys.js';
-import { getFromLocalStorage, saveToLocalStorage, renderUserStats } from '../src/utils.js';
+import { getFromLocalStorage, saveToLocalStorage, findById, renderUserStats } from '../src/utils.js';
 
 // Render map in background (HTML)
 
@@ -9,14 +9,19 @@ const user = getFromLocalStorage(userKey);
 const allQuests = getFromLocalStorage(questsKey);
 
 // If all quests are completed, redirect to results
-if (user.completedQuests.length === allQuests.length) {
-    window.location = 'results';
+if (user.completedQuests.length >= allQuests.length) {
+    window.location = '/results';
 }
 
 // Loop through quests to make and render HTML
 const allQuestsContainer = document.getElementById('all-quests-container');
 allQuests.forEach(quest => { 
-    const questDiv = makeNewQuest(quest);
+    const isCompleted = findById(quest.id, user.completedQuests);
+    console.log('quest.id: ', quest.id);
+    console.log('user.completedQuests: ', user.completedQuests);
+    console.log('isCompleted: ', isCompleted);
+    let questDiv;
+    isCompleted ? questDiv = makeOldQuest(quest) : questDiv = makeNewQuest(quest);
     allQuestsContainer.append(questDiv);
 });
 
@@ -27,6 +32,17 @@ function makeNewQuest(quest) {
     newDiv.classList.add('quest-container');
     newLink.textContent = quest.description;
     newLink.href = `/quest/?id=${quest.id}`;
+    newDiv.append(newLink);
+    return newDiv;
+}
+
+// Loop through quests to make and render HTML
+function makeOldQuest(quest) {
+    const newDiv = document.createElement('div');
+    const newLink = document.createElement('a');
+    newDiv.classList.add('quest-container');
+    newLink.textContent = quest.description;
+    newLink.classList.add('quest-completed');
     newDiv.append(newLink);
     return newDiv;
 }

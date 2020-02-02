@@ -74,7 +74,7 @@ questForm.addEventListener('submit', (event) => {
     user.money += choice.money;
 
     // Show results in DOM 
-    const resultsDiv = document.getElementById('results-container');
+    const resultsDiv = document.getElementById('quest-results-container');
     const resultsTitle = document.createElement('h2');
     resultsTitle.textContent = choice.result;
     const resultsDescription = document.createElement('p');
