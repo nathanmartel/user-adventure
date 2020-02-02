@@ -2,7 +2,7 @@
 // Expected URL: /?id=[quest]
 
 import { userKey, questsKey } from '../data/keys.js';
-import { getFromLocalStorage, saveToLocalStorage, findById } from '../src/utils.js';
+import { getFromLocalStorage, saveToLocalStorage, findById, renderUserStats } from '../src/utils.js';
 
 // Get URL Params and store variable based on id
 const searchParams = new URLSearchParams(window.location.search);
@@ -71,17 +71,20 @@ questForm.addEventListener('submit', (event) => {
     // Add results to user
     const user = getFromLocalStorage(userKey);
     user.happiness += choice.happiness;
-    user.happiness += choice.money;
+    user.money += choice.money;
 
     // Show results in DOM 
     const resultsDiv = document.getElementById('results-container');
     const resultsTitle = document.createElement('h2');
     resultsTitle.textContent = choice.result;
     const resultsDescription = document.createElement('p');
-    resultsDescription.textContent = `Health: ${user.health} / Money: ${user.money}`;
+    resultsDescription.textContent = `Health: ${choice.happiness} / Money: ${choice.money}`;
     resultsDiv.append(resultsTitle);
     resultsDiv.append(resultsDescription);
-        
+
+    // Render user stats
+    renderUserStats(user);
+
     // Mark quest as completed
     user.completedQuests.push(quest.id);
 
@@ -92,10 +95,13 @@ questForm.addEventListener('submit', (event) => {
     const mapLink = document.createElement('a');
     const mapButton = document.createElement('button');
     mapButton.textContent = 'Go back to Clark St.';
-    mapLink.href = './map';
+    mapLink.href = '../map';
     mapLink.append(mapButton);
     resultsDiv.append(mapLink);
 
 });
 
+// Run on load
+const user = getFromLocalStorage(userKey);
+renderUserStats(user);
 

@@ -1,6 +1,6 @@
 // MAP
 import { userKey, questsKey } from '../data/keys.js';
-import { getFromLocalStorage, saveToLocalStorage } from '../src/utils.js';
+import { getFromLocalStorage, saveToLocalStorage, renderUserStats } from '../src/utils.js';
 
 // Render map in background (HTML)
 
@@ -33,8 +33,10 @@ function makeNewQuest(quest) {
 
 
 // Run on load
+renderUserStats(user);
 const usernameSpan = document.getElementById('username-span');
 usernameSpan.textContent = user.name;
+
 
 // Render areas on top of map based on coords supplied by adventures data
     // Loop through quests to make and render HTML

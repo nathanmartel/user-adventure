@@ -22,8 +22,9 @@ test('Does a user get made from form input and saved in localStorage as expected
     const user = makeUser(myForm);
     const userKey = user.id;
     saveToLocalStorage(userKey, user);
-    const actualResult = localStorage.getItem(userKey);
-    
+    const actualResultString = localStorage.getItem(userKey);
+    const actualResult = JSON.parse(actualResultString);
+
     const expectedResult = {
         id: 'username',
         name: 'username',

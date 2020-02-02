@@ -26,12 +26,54 @@ export function makeUser(formData) {
     const user = {
         id: userName,
         name: userName,
-        health: 100,
+        happiness: 100,
         money: 200,
         completedQuests: [],
     };
     return user;
 }
+
+
+function addHTMLId(element, id) {
+    element.id = id;
+}
+
+
+// Create HTML elements and render user stats 
+export function renderUserStats(user) {
+    // Cannot get this to work!
+    // const [userInfoContainer, userName, userStats, userHappiness, userMoney] = ['div', 'h2', 'ul', 'li', 'li'].map(item => { 
+    //     document.createElement(item);
+    // }); 
+
+    const userInfoContainer = document.createElement('div');
+    const userName = document.createElement('h2');
+    const userStats = document.createElement('ul');
+    const userHappiness = document.createElement('li');
+    const userMoney = document.createElement('li');
+
+    const userElementVars = [userInfoContainer, userName, userStats, userHappiness, userMoney]; 
+    const userElementIds = ['user-info-container', 'user-name', 'user-stats', 'user-happiness', 'user-money'];
+    // const userElements = ['div', 'h2', 'ul', 'li', 'li'];
+    
+    userElementVars.forEach((item, i) => { 
+        addHTMLId(item, userElementIds[i]);
+    });
+    
+    userName.textContent = `${user.name}`;
+    userHappiness.textContent = `Happiness: ${user.happiness}`;
+    userMoney.textContent = `Money: ${user.money}`;
+
+    userStats.append(userHappiness);
+    userStats.append(userMoney);
+    userInfoContainer.append(userName);
+    userInfoContainer.append(userStats);
+
+    const existingContainer = document.getElementById('user-info-container');
+    existingContainer.replaceWith(userInfoContainer);
+
+}
+
 
 // Return matching object from array
 export function findById(someId, someArray) {
