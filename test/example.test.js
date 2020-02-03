@@ -18,7 +18,7 @@ test('Does a user get made from form input and saved in localStorage as expected
         id: 'username',
         name: 'username',
         happiness: 100,
-        money: 200,
+        money: 100,
         completedQuests: [],
     };
 
