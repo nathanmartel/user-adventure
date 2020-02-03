@@ -1,46 +1,18 @@
 // RESULTS
 
-import { userKey, questsKey } from '../data/keys.js';
-import { getFromLocalStorage, saveToLocalStorage, findById, renderUserStats } from '../src/utils.js';
-import { happinessText, moneyText } from '../data/results-data.js';
+import { userKey } from '../data/keys.js';
+import { getFromLocalStorage, renderUserStats, evalHappiness, evalMoney } from '../src/utils.js';
 
 // Get the results from localStorage
 const user = getFromLocalStorage(userKey);
+
 
 // Render user stats
 renderUserStats(user);
 
 // Evaluate for happiness and money
-let happinessResult;
-let moneyResult;
-switch (user.happiness) {
-    case '< 50': { 
-        happinessResult = happinessText.depressed;
-        break;
-    }
-    case '< 100': { 
-        happinessResult = happinessText.meh;
-        break;
-    }
-    default: { 
-        happinessResult = happinessText.happy;
-    }
-}
-
-switch (user.money) {
-    case '< 50': { 
-        moneyResult = moneyText.poor;
-        break;
-    }
-    case '< 100': { 
-        moneyResult = moneyText.meh;
-        break;
-    }
-    default: { 
-        moneyResult = moneyText.rich;
-    }
-}
-
+const happinessResult = evalHappiness(user.happiness);
+const moneyResult = evalMoney(user.money);
 
 // Display results message
 const resultsContainer = document.getElementById('results-container');

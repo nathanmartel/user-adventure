@@ -1,19 +1,8 @@
 // IMPORT MODULES under test here:
-import { makeUser, saveToLocalStorage } from '../src/utils.js';
+import { makeUser, saveToLocalStorage, findById, evalHappiness, evalMoney } from '../src/utils.js';
 
 const test = QUnit.test;
 
-test('time to test a function', function(assert) {
-    //Arrange
-    // Set up your parameters and expectations
-
-    //Act 
-    // Call the function you're testing and set the result to a const
-
-    //Assert
-    // Make assertions about what is expected valid result
-    assert.equal(true, true);
-});
 
 test('Does a user get made from form input and saved in localStorage as expected?', function(assert) {
 
@@ -28,10 +17,43 @@ test('Does a user get made from form input and saved in localStorage as expected
     const expectedResult = {
         id: 'username',
         name: 'username',
-        health: 100,
+        happiness: 100,
         money: 200,
         completedQuests: [],
     };
 
     assert.deepEqual(expectedResult, actualResult);
 });
+
+test('Does findById work as expected?', function(assert) {
+
+    const testArray = [{ 
+        id: 'foo', 
+        foo: 'bar',
+    }, { 
+        id: 'hopLeaf',
+        foo: 'bar',
+    }, { 
+        id: 'bar',
+        foo: 'bar',
+    }];       
+    const actualResult = findById('hopLeaf', testArray);
+    const expectedResult = { id: 'hopLeaf', foo: 'bar' };
+
+    assert.deepEqual(actualResult, expectedResult);
+});
+
+test('Is the user happy with happiness = 101?', function(assert) {
+    const actualResult = evalHappiness(101);
+    const expectedResult = `You're elated! Best day ever!`;
+    
+    assert.equal(expectedResult, actualResult);
+});
+
+test('Is the user broke with money = 20?', function(assert) {
+    const actualResult = evalMoney(20);
+    const expectedResult = `You're broke!`;
+    
+    assert.equal(expectedResult, actualResult);
+});
+

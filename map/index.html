@@ -8,20 +8,17 @@
     <link rel="stylesheet" type="text/css" href="../src/bootstrap-reboot.min.css">
     <link rel="stylesheet" type="text/css" href="../src/style.css">
     <link rel="stylesheet" type="text/css" href="map.css">
+    <link href="https://fonts.googleapis.com/css?family=Martel:400,700,900|Open+Sans:400,700&display=swap" rel="stylesheet">
     <title>Andersonventure!</title>
 </head>
 <body>
     <div id="user-info-container"></div>
-    <h1>Map / List of Adventures</h1>
-    <p>Welcome, <span id="username-span"></span> - Lorem ipsum dolor</p>
-    <div id="all-quests-container">
+    <div id="outer-container">
+        <h2>What does Clark St. have to offer?</h2>
+        <div id="map-container">
+        </div>
     </div>
-    <!-- <form id="listOfAdventures">
-        <label>Your name:
-            <input id="choice" type="radio" name="" />
-        </label>
-        <button type="submit">Journey Forth!</button>
-    </form> -->
+    <div id="bg-overlay"></div>
     <script type="module" src="map.js"></script>
 </body>
 

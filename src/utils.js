@@ -1,4 +1,5 @@
-// UTILS
+// UTILS.JS
+import { happinessText, moneyText } from '../data/results-data.js';
 
 // Save passed data to localStorage
 export function saveToLocalStorage(key, element) {
@@ -27,7 +28,7 @@ export function makeUser(formData) {
         id: userName,
         name: userName,
         happiness: 100,
-        money: 200,
+        money: 100,
         completedQuests: [],
     };
     return user;
@@ -83,4 +84,20 @@ export function findById(someId, someArray) {
     return someArray.find((thisItem) => { 
         if (thisItem.id === someId) return thisItem;
     });
+}
+
+
+// Evaluate for happiness and return string
+export function evalHappiness(amount) {
+    if (amount < 25) return happinessText.depressed; 
+    if (amount < 50) return happinessText.meh; 
+    return happinessText.happy; 
+}
+
+
+// Evaluate for money and return string
+export function evalMoney(amount) {
+    if (amount < 25) return moneyText.poor; 
+    if (amount < 50) return moneyText.meh; 
+    return moneyText.rich; 
 }

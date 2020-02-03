@@ -2,24 +2,25 @@ const magicLounge = {
     id: 'magicLounge',
     name: 'Chicago Magic Lounge',
     image: '../assets/magiclounge.jpg',
-    description: `See a swanky magic show!`,
+    description: `See a magic show.`,
+    choiceDescription: `Tickets, please...`,
     choices: [{
         id: 'vip',
         description: `Get the VIP package`,
         result: `You have an undeniably great time. But at what cost?`,
         happiness: 15,
-        money: -50,
+        money: -75,
     }, {
         id: 'cheapSeats',
         description: `Go for the discount balcony seats`,
         result: `Turns out those cheap seats are legit, and the show was better than expected!`,
         happiness: 20,
-        money: -25,
+        money: -35,
     }, {
         id: 'sneakIn',
         description: `Sneak in via the old laundry chute`,
         result: `You think that's going to work? This place has trap doors that contain trap doors! You get lost and spend the next 3 hours finding your way out.`,
-        happiness: -20,
+        happiness: -50,
         money: 0,
     }]
 };
@@ -27,26 +28,27 @@ const magicLounge = {
 const hopLeaf = {
     id: 'hopLeaf',
     name: 'Hop Leaf',
-    description: `Time for a beer! What're you having?`,
-    image: '../assets/hopleaf.jpg',
+    description: `Time for a beer!`,
+    image: '../assets/hopleaf2.jpg',
+    choiceDescription: `What're you having?`,
     choices: [{
         id: 'oldStyle',
         description: `Old Style`,
         result: `This ain't no watering hole! The surly bartender stares you down and charges triple.`,
         happiness: -5,
-        money: -10,
+        money: -12,
     }, {
         id: 'boon',
         description: `Boon Oude Kriek`,
         result: `You can taste the naturally fermented Belgian authenticity!`,
         happiness: 5,
-        money: -7,
+        money: -8,
     }, {
         id: 'zombieDust',
-        description: `3 Floyds Zombie Dust (and, heck, the Mussels and frites, too...)`,
-        result: `Utterly classic. Everything is suddenly right in this world.`,
-        happiness: 20,
-        money: -18,
+        description: `3 Floyds Zombie Dust`,
+        result: `A Midwest classic. Everything is right in this world.`,
+        happiness: 8,
+        money: -6,
     }]
 };
 
@@ -55,6 +57,7 @@ const laColombe = {
     name: 'La Colombe',
     description: `But first, coffee.`,
     image: '../assets/lacolombe.jpg',
+    choiceDescription: `Choose your brew.`,
     choices: [{
         id: 'pourOver',
         description: `Single-origin pour over`,
@@ -64,34 +67,45 @@ const laColombe = {
     }, {
         id: 'decaf',
         description: `Decaf`,
-        result: `The barista rings an enormous gong. The place grows quiet. Wait staff begin chanting, "shame!... shame!... shame!..." as you retreat out the door.`,
+        result: `From deep within the coffee shop, a gong rings out. The place grows quiet. Baristas begin chanting, "shame!... shame!... shame!..." as you retreat out the door.`,
         happiness: -15,
         money: 0,
     }, {
         id: 'latte',
         description: `Enormous latte with an extra shot`,
-        result: `That is darn delicous! But the jitters take over and you spill coffee down your pants while the hipsters on their laptops smirk behind their oversized glasses.`,
+        result: `Delicous! But the jitters take over and you spill coffee down your pants. The hipsters smirk at you behind their oversized glasses.`,
         happiness: -3,
-        money: -8,
+        money: -9,
     }]
 };
 
+const bookstore = {
+    id: 'bookstore',
+    name: 'Women & Children First',
+    description: `Browse the bookstore.`,
+    image: '../assets/bookstore.jpg',
+    choiceDescription: `It's one of the country's oldest feminist bookstores. What are you reading next?`,
+    choices: [{
+        id: 'pourOver',
+        description: `"The Witches Are Coming" by Lindey West`,
+        result: `This wickedly funny cultural critique is exactly what you needed!`,
+        happiness: 7,
+        money: -18,
+    }, {
+        id: 'leanIn',
+        description: `"Lean In" by Sheryl Sandberg`,
+        result: `The clerk persuades you to buy three more books. See, you can have it all!`,
+        happiness: -3,
+        money: -45,
+    }, {
+        id: 'latte',
+        description: `"The Testaments" by Margaret Atwood`,
+        result: `Ah, the long-awaited sequel to The Handmaid's Tale... Sadly, it hits too close to home and so you will put off reading it!`,
+        happiness: -5,
+        money: -18,
+    }]
+};
 
-// #### Therapy
-// You're overdue to talk about a few things...
-// 1. Disclose a deep, dark secret
-//     - Now you just feel ashamed. That didn't help at all!
-//     - Happiness: -10
-//     - Money: -100
-// 1. Process the state of your relationship 
-//     - You learn that your eagerness to fix your partner's car — an expression of love via an act of service — doesn't negate your avoidant personality type. Hmm...
-//     - Happiness: 0
-//     - Money: -100
-// 1. Talk about your childhood
-//     - It's all Mom's fault?... Oh! A breakthrough!
-//     - Happiness: 30
-//     - Money: -100
-
-const quests = [magicLounge, hopLeaf, laColombe];
+const quests = [laColombe, bookstore, magicLounge, hopLeaf];
 
 export { quests };

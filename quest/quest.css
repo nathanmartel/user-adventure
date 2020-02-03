@@ -7,10 +7,12 @@
     padding: 3rem;   
 }
 
-#quest-container h2 { text-shadow: black 2px 2px; }
-
-form {
+#quest-container h2 { 
+    text-shadow: rgba(0, 0, 0, .7) 1px 1px 5px; 
+    color: #f1d22a;
+    font-size: 2.5rem;
 }
+
 
 .quest-choices-container {
     margin: 0 auto;
@@ -24,14 +26,39 @@ form {
     width: 100%;
     margin: 20px;
     padding: 40px;
-    background: rgba(0,0,0,0.85);
-    min-height: 300px;
+    background: rgba(0,0,0,0.7);
+    border-radius: 6px;
+    min-height: 200px;
+    display: flex;
+    align-items: center;
+    border: 1px solid #f1d22a;
 }
+
+.quest-choice span {
+    display: block;
+}
+
+.quest-choice div {
+    margin: 0 auto;
+}
+
 
 .quest-choice:hover {
     transform: scale(1.05);
+    transition: ease-in-out 0.2s;
 }
 
-label span {
-    display: block;
+#quest-results-container {
+    margin: 3rem auto;
+    width: 70%;
+    background-color: rgba(0, 0, 0, .7);
+    border-radius: 6px;
+    padding: 3rem;
+}
+
+#quest-results-container h3 {
+    color: #8fb6f5;
+    font-family: 'Open Sans', sans-serif;
+    font-size: 1.2rem;
+    margin-bottom:1.5rem;
 }
