@@ -1,0 +1,48 @@
+body {
+    background-image: url('../assets/andersonville3.jpg');
+    background-size: cover;
+}
+
+#outer-container {
+    margin: 3rem auto;
+    width: 70%;
+}
+
+#outer-container h2 { 
+    text-shadow: rgba(0, 0, 0, .7) 1px 1px 5px; 
+    color: #f1d22a;
+    font-size: 2.5rem;
+    margin-bottom: 1.5rem;
+}
+
+#map-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.map-choice {
+    width: 100%;
+    margin: 20px;
+    padding: 40px;
+    background: rgba(0,0,0,0.7);
+    border-radius: 6px;
+    min-height: 200px;
+    display: flex;
+    align-items: center;
+    border: 1px solid #f1d22a;
+}
+
+.map-choice:hover {
+    transform: scale(1.05);
+    transition: scale ease-in-out 0.2s;
+    text-decoration: none;
+}
+
+.map-choice.quest-completed {
+    color: #666;
+}
+.map-choice.quest-completed:hover {
+    transform: none;
+    text-decoration: none;
+}

@@ -1,0 +1,14 @@
+body {
+    /* background-image: url('../assets/andersonville3.jpg'); */
+    background-color: #f1d22a;
+    background-size: cover;
+}
+
+#results-container {
+    width: 70%;
+    margin: 3rem auto;
+}
+
+#results-container h2 {
+    margin-bottom: 1.5rem;
+}
