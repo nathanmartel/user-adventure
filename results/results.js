@@ -28,7 +28,7 @@ const playAgainButton = document.createElement('button');
 playAgainButton.textContent = 'Play again?';
 resultsContainer.append(playAgainButton);
 playAgainButton.addEventListener('click', () => {
-    window.location.href = '/index.html';
+    window.location.href = '../';
 });
 
 

@@ -10,7 +10,7 @@ const allQuestsContainer = document.getElementById('map-container');
 
 // If all quests are completed, redirect to results
 if (user.completedQuests.length >= allQuests.length) {
-    window.location = '/results';
+    window.location = '../results';
 }
 
 // Render user stats and quests
@@ -32,7 +32,7 @@ function renderQuests(allQuests, allQuestsContainer) {
 function makeQuest(quest, isCompleted) {
     const newLink = document.createElement('a');
     newLink.classList.add('map-choice');
-    newLink.href = `/quest/?id=${quest.id}`;
+    newLink.href = `../quest/?id=${quest.id}`;
     const newDiv = document.createElement('div');
     newDiv.textContent = quest.description;
     if (isCompleted) { 
