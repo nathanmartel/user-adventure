@@ -64,7 +64,7 @@ questForm.append(submitButton);
 
 // Add way back to map
 const goBack = document.createElement('a');
-goBack.href = '/map';
+goBack.href = './map';
 questContainer.append(goBack);
 
 // On form submit, get user choice and process...
